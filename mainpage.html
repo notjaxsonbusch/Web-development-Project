@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Portfolio | BYU Accounting & Economics</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../CSS/Main.css">
+    <style>
+        .hero-section { background: #f8f9fa; padding: 100px 0; border-bottom: 1px solid #dee2e6; }
+        .compliance-footer { background: #212529; color: #ced4da; padding: 40px 0; font-size: 0.85rem; }
+        .resume-section { padding: 60px 0; }
+        .card { transition: transform 0.2s; border: none !important; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+        .card:hover { transform: translateY(-5px); }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Academic Portfolio</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavMenu" aria-controls="navbarNavMenu" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNavMenu">
+                <div class="navbar-nav ms-auto">
+                    <a class="nav-link" href="#about">About</a>
+                    <a class="nav-link text-info" href="Webappgame.html"><b>TVM App</b></a>
+                    <a class="nav-link" href="#resume">Resume</a>
+                    <a class="nav-link" href="./Spurs.html">Scratch Page</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero-section text-center">
+        <div class="container">
+            <h1 class="display-4 fw-bold text-dark">Financial Data & Economics</h1>
+            <p class="lead text-secondary">A portfolio of academic projects and professional experience.</p>
+            <div class="mt-4">
+                <a href="#resume" class="btn btn-primary btn-lg px-4">View My Resume</a>
+                <a href="Webappgame.html" class="btn btn-outline-dark btn-lg px-4 ms-2">Launch TVM App</a>
+            </div>
+        </div>
+    </header>
+
+    <section id="about" class="py-5">
+        <div class="container">
+            <div class="row g-4 text-center">
+                <div class="col-md-4">
+                    <div class="card h-100 p-4">
+                        <h3>Compound Growth</h3>
+                        <p class="body">Analyzing the time value of money using economic forecasting models.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 p-4">
+                        <h3>Data Visualization</h3>
+                        <p class="body">Utilizing SQL and Tableau to derive insights from complex datasets.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 p-4 border-top border-info border-5">
+                        <h3 class="text-info">Interactive App</h3>
+                        <p class="body">A custom JavaScript simulator for visualizing future values.</p>
+                        <a href="Webappgame.html" class="btn btn-sm btn-info text-white mt-auto">Open App</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="resume" class="bg-light py-5">
+        <div class="container">
+            <div class="bg-white p-5 rounded shadow-sm">
+                <h2 class="mb-4">Professional Resume</h2>
+                
+                <h5>Education</h5>
+                <p><strong>Brigham Young University</strong> | Accounting & Economics</p>
+                <hr>
+                
+                <h5>Professional Experience</h5>
+                <p><strong>Investment Advisor Representative (IAR)</strong> | Licensed Professional</p>
+                <ul>
+                    <li>Actively hold Series 6, 63, and 65 licenses.</li>
+                    <li>Licensed for Life Insurance in the state of Utah.</li>
+                    <li>Educating families on foundational economic principles and long-term planning.</li>
+                    <li>Analyzing financial data to provide academic-based wealth simulations.</li>
+                </ul>
+
+                <p><strong>Lead Cook</strong> | Panda Express</p>
+                <ul>
+                    <li>One year of experience managing high-volume kitchen operations.</li>
+                    <li>Demonstrated work ethic and reliability by handling labor-intensive duties and sanitation.</li>
+                    <li>Successfully operated in a fast-paced, high-pressure service environment.</li>
+                </ul>
+                <hr>
+
+                <h5>Technical Skills</h5>
+                <ul>
+                    <li>Financial Analysis & Wealth Management</li>
+                    <li>Data Visualization (Tableau & SQL)</li>
+                    <li>Time Value of Money (TVM) Modeling</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <footer class="compliance-footer text-center">
+        <div class="container">
+            <p><strong>Student Project Disclaimer:</strong> For educational use only at BYU. Not financial advice.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

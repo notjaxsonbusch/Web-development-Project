@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TVM Simulator | Student Project</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { background-color: #f4f7f6; font-family: 'Segoe UI', sans-serif; }
+        .calculator-card {
+            max-width: 550px;
+            margin: 40px auto;
+            background: white;
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        .result-display {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 25px;
+            border: 1px solid #dee2e6;
+        }
+        .slider-label { display: flex; justify-content: space-between; font-weight: 600; margin-bottom: 5px; }
+        input[type=range] { width: 100%; margin-bottom: 20px; cursor: pointer; }
+        .disclaimer { font-size: 0.75rem; color: #6c757d; margin-top: 25px; text-align: justify; line-height: 1.4; }
+        .form-label { font-weight: 500; color: #495057; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="calculator-card">
+        <h2 class="text-center mb-1">Savings Simulator</h2>
+        <p class="text-muted text-center small mb-4">BYU IS 201: Collaborative AI Development Project</p>
+        
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label class="form-label">Initial Balance ($)</label>
+                <input type="number" id="pv" class="form-control" value="1000" oninput="calculateFV()">
+            </div>
+            <div class="col-md-6 mb-3">
+                <label class="form-label">Annual Return (%)</label>
+                <input type="number" id="rate" class="form-control" value="7" oninput="calculateFV()">
+            </div>
+        </div>
+
+        <div class="mb-4">
+            <label class="form-label">Monthly Contribution ($)</label>
+            <input type="number" id="pmt" class="form-control" value="100" oninput="calculateFV()">
+            <div class="form-text">Amount added at the end of every month.</div>
+        </div>
+
+        <div class="mb-3">
+            <div class="slider-label">
+                <span>Time Horizon</span>
+                <span id="yearDisplay" class="text-primary">20 Years</span>
+            </div>
+            <input type="range" id="years" min="1" max="50" value="20" oninput="calculateFV()">
+        </div>
+
+        <div class="result-display">
+            <div class="text-uppercase small text-muted mb-1 fw-bold">Estimated Future Value</div>
+            <h1 id="fvDisplay" class="text-success fw-bold">$56,013.97</h1>
+        </div>
+
+        <div class="text-center mt-4">
+            <a href="./mainpage.html" class="btn btn-outline-secondary btn-sm px-4">← Back to Portfolio</a>
+        </div>
+
+        <div class="disclaimer border-top pt-3">
+            <strong>COMPLIANCE & ACADEMIC NOTICE:</strong> This calculator is a student-built tool for educational simulation only. 
+            It uses standard mathematical formulas: <em>FV = PV(1+i)^n + PMT[((1+i)^n - 1)/i]</em>. 
+            This does not reflect the performance of any specific financial product and should not be used for actual investment planning.
+        </div>
+    </div>
+</div>
+
+<script>
+    function calculateFV() {
+        // Inputs
+        const pv = parseFloat(document.getElementById('pv').value) || 0;
+        const pmt = parseFloat(document.getElementById('pmt').value) || 0;
+        const annualRate = parseFloat(document.getElementById('rate').value) / 100 || 0;
+        const years = parseInt(document.getElementById('years').value);
+
+        // Update Slider Text
+        document.getElementById('yearDisplay').innerText = years + " Years";
+
+        // Monthly breakdown
+        const i = annualRate / 12; // monthly interest rate
+        const n = years * 12;      // total months
+
+        let fv = 0;
+
+        if (i === 0) {
+            // Handle 0% interest edge case to avoid division by zero
+            fv = pv + (pmt * n);
+        } else {
+            // Standard FV formula for monthly contributions (Ordinary Annuity)
+            // FV = [PV * (1+i)^n] + [PMT * (((1+i)^n - 1) / i)]
+            const pvCompounded = pv * Math.pow((1 + i), n);
+            const annuityGrowth = pmt * ( (Math.pow((1 + i), n) - 1) / i );
+            fv = pvCompounded + annuityGrowth;
+        }
+
+        // Format and Display
+        document.getElementById('fvDisplay').innerText = new Intl.NumberFormat('en-US', {
+            style: 'currency',
+            currency: 'USD',
+        }).format(fv);
+    }
+
+    // Initialize on load
+    window.onload = calculateFV;
+</script>
+
+</body>
+</html>
