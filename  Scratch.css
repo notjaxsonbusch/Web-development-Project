@@ -1,4 +1,4 @@
-/* Core Page Styles */
+
 .spurs {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 15px;
@@ -6,7 +6,7 @@
     background-color: cornsilk;
 }
 
-/* Image Row Layout */
+
 .image-row {
     display: flex;
     justify-content: center;
@@ -21,30 +21,30 @@
     border-radius: 10px;
 }
 
-/* Media Centering (The Fix) */
+
 .center-media {
-    text-align: center; /* This is the secret for Tableau embeds */
+    text-align: center; /
     width: 100%;
     margin: 40px 0;
     display: block;
 }
 
-/* Forces Tableau to center even when its script tries to move it */
+
 .tableauPlaceholder {
-    display: inline-block !important; /* Prevents it from taking 100% width */
+    display: inline-block !important; 
     margin: 0 auto !important;
     vertical-align: middle;
 }
 
-/* Title Centering */
+
 .container {
     text-align: center;
     padding: 20px 0;
 }
 
 .Accomp {
-    text-align: center;       /* Centers the text and numbers */
-    list-style-position: inside; /* Pulls the numbers in so they stay centered */
+    text-align: center;       
+    list-style-position: inside; 
     line-height: 1.6;
     font-weight: bold;
     text-decoration: underline;
@@ -60,7 +60,6 @@
 }
 
 
-/* Link Styles */
 a { color: maroon; text-decoration: none; }
 a:hover { text-decoration: underline; font-weight: bold; }
 
